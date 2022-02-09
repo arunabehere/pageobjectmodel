@@ -16,15 +16,14 @@ import org.testng.annotations.BeforeTest;
 import com.qa.utilities.TestUtils;
 
 public class TestBase {
-	public  Properties prop;
-	public  WebDriver driver;
+	public static Properties prop;
+	public static WebDriver driver;
 	Logger logger;
 	
 	public TestBase() {
 		try {
 			prop = new Properties();
 			FileInputStream fs = new FileInputStream(System.getProperty("user.dir")+"/src/main/java/com/qa/configuration/config.properties");
-			System.out.println("user directory " + System.getProperty("user.dir"));
 			prop.load(fs);
 			//logger = Logger.getLogger("pageobjectmodel");
 		} catch (FileNotFoundException e) {
@@ -37,8 +36,7 @@ public class TestBase {
 		
 	}
 	
-	@BeforeTest
-	public WebDriver initialization() {
+	public void initialization() {
 		String browser = prop.getProperty("browser");
 		String URL = prop.getProperty("url");
 		String chromeDriver = prop.getProperty("chromeDriver");
@@ -49,12 +47,11 @@ public class TestBase {
 			driver=new ChromeDriver();
 		}
 		
-		driver.manage().window().maximize();
+	//	driver.manage().window().maximize();
 		driver.manage().deleteAllCookies();
 		driver.manage().timeouts().pageLoadTimeout(TestUtils.pageLoadtime, TimeUnit.SECONDS);
 		driver.manage().timeouts().implicitlyWait(TestUtils.implicitWait, TimeUnit.SECONDS);
 		driver.get(URL);
-		return driver;
 	}
 	
 	/*

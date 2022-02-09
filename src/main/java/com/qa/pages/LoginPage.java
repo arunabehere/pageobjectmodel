@@ -10,11 +10,9 @@ import com.qa.base.TestBase;
 
 public class LoginPage extends TestBase{
 	
-	WebDriver driver;
-	
 	//PageFactory
-	public LoginPage(WebDriver ldriver) {
-		driver = ldriver;
+	public LoginPage() {
+		initialization();
 		PageFactory.initElements(driver, this);
 	}
 	
@@ -30,6 +28,8 @@ public class LoginPage extends TestBase{
 	@FindBy(name="btnReset")
 	WebElement reset;
 	
+	@FindBy(xpath="//*[contains(text(),'mngr385253')]")
+	public WebElement verifyText;
 	
 	
 	public void login(String user, String pwd) {

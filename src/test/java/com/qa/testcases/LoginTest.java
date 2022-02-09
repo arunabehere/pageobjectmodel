@@ -12,9 +12,8 @@ public class LoginTest extends TestBase{
 	
 	LoginPage lp;
 	
-	@BeforeMethod
-	public void setUp() {
-		lp = new LoginPage(driver);
+	public LoginTest() {
+		lp = new LoginPage();
 	}
 	
 	@Test(priority=1, enabled=false)
@@ -28,6 +27,7 @@ public class LoginTest extends TestBase{
 		
 		lp.login(prop.getProperty("user"), prop.getProperty("password"));
 		lp.clickLogin();
-		assertEquals(driver.getTitle(),"Guru99 Bank Manager HomePage");
-		}
+		//assertEquals(lp.verifyText,"Guru99 Bank Manager HomePage");
+	
+	}
 }

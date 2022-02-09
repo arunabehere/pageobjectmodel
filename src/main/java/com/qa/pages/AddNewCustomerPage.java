@@ -10,10 +10,16 @@ import com.qa.base.TestBase;
 
 public class AddNewCustomerPage extends TestBase{
 
-	public AddNewCustomerPage(WebDriver ldriver) {
-		driver = ldriver;
+	public AddNewCustomerPage() {
+		//initialization();    /// only when Login functionalities are not called
 		PageFactory.initElements(driver, this);
 	}
+	
+	@FindBy(name="addr")
+	WebElement address;
+	
+	@FindBy(xpath="//a[text()='New Customer']")
+	WebElement nCust;
 	
 	@FindBy(name="name")
 	WebElement custName;
@@ -48,8 +54,9 @@ public class AddNewCustomerPage extends TestBase{
 	@FindBy(name="password")
 	WebElement password;
 	
-	   //// use testNG dataProvider ,or test data from excel
+	@Test  //// use testNG dataProvider ,or test data from excel
 	public void submitNewCustomerDetails() {
+		nCust.click();
 		custName.sendKeys("aruna");
 		female.click();
 		calendar.sendKeys("12-01-1993");
@@ -58,6 +65,8 @@ public class AddNewCustomerPage extends TestBase{
 		cell.sendKeys("9883333330");
 		pin.sendKeys("232323");
 		state.sendKeys("Karnataka");
+		address.sendKeys("Bangalore");
+		password.sendKeys("password");
 		buttonSubmit.click();
 		
 	}

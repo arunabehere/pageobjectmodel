@@ -7,8 +7,6 @@
       <class name="com.qa.testcases.AddCustomerTest">
         <methods>
           <include name="customerCreated"/>
-          <include name="setUp"/>
-          <include name="initialization"/>
         </methods>
       </class> <!-- com.qa.testcases.AddCustomerTest -->
     </classes>
