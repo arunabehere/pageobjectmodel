@@ -61,7 +61,7 @@ public class AddNewCustomerPage extends TestBase{
 		female.click();
 		calendar.sendKeys("12-01-1993");
 		city.sendKeys("Bangalore");
-		email.sendKeys("arunabehere@gmail.com");
+		email.sendKeys("abangalore@gmail.com");
 		cell.sendKeys("9883333330");
 		pin.sendKeys("232323");
 		state.sendKeys("Karnataka");
