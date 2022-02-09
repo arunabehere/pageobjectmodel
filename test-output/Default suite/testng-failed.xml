@@ -5,9 +5,11 @@
     <classes>
       <class name="com.qa.testcases.LoginTest">
         <methods>
+          <include name="verifyRest"/>
           <include name="verifyTitle"/>
           <include name="tearDown"/>
           <include name="initialization"/>
+          <include name="setUp"/>
         </methods>
       </class> <!-- com.qa.testcases.LoginTest -->
     </classes>

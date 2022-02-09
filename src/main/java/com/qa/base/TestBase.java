@@ -38,8 +38,11 @@ public class TestBase {
 	public WebDriver initialization() {
 		String browser = prop.getProperty("browser");
 		String URL = prop.getProperty("url");
+		String chrome = prop.getProperty("chromDriver");
+		String chromePath = prop.getProperty("chromeDriverExe");
+		
 		if(browser.equalsIgnoreCase("chrome")) {
-			System.setProperty("webdriver.chrome.driver","C:\\Users\\DELL\\Desktop\\Chrome\\chromedriver.exe");
+			System.setProperty(chrome,System.getProperty("user.dir")+chromePath);
 			driver=new ChromeDriver();
 		}
 		
