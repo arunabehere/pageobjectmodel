@@ -1,6 +1,5 @@
 package com.qa.pages;
 
-import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
 import org.openqa.selenium.WebDriver;
@@ -21,31 +20,32 @@ public class LoginPage extends TestBase{
 		PageFactory.initElements(driver, this);
 	}
 	
-	@FindBy(name="")
+	@FindBy(css="input[name='uid']")
 	WebElement userName;
 	
-	@FindBy(id="")
+	@FindBy(name="password")
 	WebElement password;
 	
-	@FindBy(id="")
+	@FindBy(name="btnLogin")
 	WebElement loginBtn;
 	
-	@FindBy(css="input.gLFyf gsfi")
-	WebElement search;
+	@FindBy(name="btnReset")
+	WebElement reset;
 	
-	@FindBy(css="input.gNO89b")
-	WebElement clickBtn;
 	
 	@Test
-	public void sendSearchText(String value) {
-		search.sendKeys(value);
-		clickBtn.click();
+	public void login(String user, String pwd) {
+		userName.sendKeys(user);
+		password.sendKeys(pwd);
 	}
 	
 	@Test
-	public void aVerifyText(String pageTitle) {
-		String title = driver.getTitle();
-		assertEquals(title,pageTitle);
+	public void clickLogin() {
+		loginBtn.click();
+	}
+	@Test
+	public void reset() {
+		reset.click();
 	}
 
 }
