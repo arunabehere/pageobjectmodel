@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterClass;
@@ -17,6 +18,7 @@ import com.qa.utilities.TestUtils;
 public class TestBase {
 	public  Properties prop;
 	public  WebDriver driver;
+	Logger logger;
 	
 	public TestBase() {
 		try {
@@ -24,6 +26,7 @@ public class TestBase {
 			FileInputStream fs = new FileInputStream(System.getProperty("user.dir")+"/src/main/java/com/qa/configuration/config.properties");
 			System.out.println("user directory " + System.getProperty("user.dir"));
 			prop.load(fs);
+			//logger = Logger.getLogger("pageobjectmodel");
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -38,11 +41,11 @@ public class TestBase {
 	public WebDriver initialization() {
 		String browser = prop.getProperty("browser");
 		String URL = prop.getProperty("url");
-		String chrome = prop.getProperty("chromDriver");
+		String chromeDriver = prop.getProperty("chromeDriver");
 		String chromePath = prop.getProperty("chromeDriverExe");
 		
 		if(browser.equalsIgnoreCase("chrome")) {
-			System.setProperty(chrome,System.getProperty("user.dir")+chromePath);
+			System.setProperty(chromeDriver,System.getProperty("user.dir")+chromePath);
 			driver=new ChromeDriver();
 		}
 		
@@ -54,8 +57,7 @@ public class TestBase {
 		return driver;
 	}
 	
-	@AfterClass
-	public void tearDown() {
-		driver.quit();
-	}
+	/*
+	 * @AfterClass public void tearDown() { driver.quit(); }
+	 */
 }

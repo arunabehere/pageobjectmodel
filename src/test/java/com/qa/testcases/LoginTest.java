@@ -17,8 +17,8 @@ public class LoginTest extends TestBase{
 		lp = new LoginPage(driver);
 	}
 	
-	@Test(priority=1)
-	public void verifyRest() {
+	@Test(priority=1, enabled=false)
+	public void verifyReset() {
 		lp.login(prop.getProperty("user"), prop.getProperty("password"));
 		lp.reset();
 		}

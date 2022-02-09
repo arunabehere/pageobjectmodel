@@ -31,17 +31,18 @@ public class LoginPage extends TestBase{
 	WebElement reset;
 	
 	
-	@Test
+	
 	public void login(String user, String pwd) {
 		userName.sendKeys(user);
 		password.sendKeys(pwd);
 	}
 	
-	@Test
+	
 	public void clickLogin() {
 		loginBtn.click();
 	}
-	@Test
+	
+	
 	public void reset() {
 		reset.click();
 	}
